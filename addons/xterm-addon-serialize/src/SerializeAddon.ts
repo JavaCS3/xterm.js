@@ -40,6 +40,7 @@ class BaseSerializeHandler {
   constructor(private _buffer: IBuffer) { }
 
   serialize(startRow: number, endRow: number): string {
+    console.log('serialize addon:', 'startRow=', startRow, 'endRow=', endRow);
     let oldCell: IBufferCell = new NullBufferCell();
 
     this._serializeStart(endRow - startRow);
@@ -270,7 +271,7 @@ export class SerializeAddon implements ITerminalAddon {
       throw new Error('Cannot use addon until it has been loaded');
     }
 
-    const maxRows = this._terminal.rows;
+    const maxRows = this._terminal.buffer.length;
     const handler = new StringSerializeHandler(this._terminal.buffer);
 
     rows = crop(rows, 0, maxRows, maxRows);
