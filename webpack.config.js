@@ -4,7 +4,7 @@
  */
 
 const path = require('path');
-
+// FIX
 /**
  * This webpack config does a production build for xterm.js. It works by taking the output from tsc
  * (via `yarn watch` or `yarn prebuild`) which are put into `out/` and webpacks them into a
